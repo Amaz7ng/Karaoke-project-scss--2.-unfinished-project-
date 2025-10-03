@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karaoke</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner container">
+        <a class="header__logo logo" href="/" aria-label="Home" title="Home">
+          <img
+            class="logo__image"
+            src="image/logo/header_logo(Xarizma).svg"
+            width="293"
+            height="67"
+            alt="YARIZMA"
+          />
+        </a>
+        <button
+          class="burger-button"
+          type="button"
+          aria-label="Open menu"
+          title="Open menu"
+        >
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+        </button>
+        <div class="header__overlay">
+          <nav class="header__menu">
+            <ul class="header__menu-list">
+              <li class="header__menu-item">
+                <a
+                  class="header__menu-link icon icon-phone"
+                  href="tel:380979709090"
+                >
+                  +38 (097) 970-90-90
+                </a>
+              </li>
+              <li class="header__menu-item">
+                <a class="header__menu-link icon icon-location" href="#">
+                  м. Лубянка
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__btn-box">
+            <a class="header__btn button button-black" href="/">НАШИ ЗАЛЫ</a>
+            <a class="header__btn button button-white" href="/"
+              >ЗАБРОНИРОВАТЬ</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="burger-menu">
+      <div class="burger-menu__overlay"></div>
+      <div class="burger-menu__content">
+        <!-- Логотип и контакты -->
+        <div class="burger-menu__header">
+          <div class="burger-menu__logo">
+            <img
+              class="logo__image"
+              src="image/logo/header_logo(Xarizma).svg"
+              width="293"
+              height="67"
+              alt="YARIZMA"
+            />
+          </div>
+          <div class="burger-menu__contacts">
+            <a class="burger-menu__contact-link icon icon-location" href="#">
+              м. Лубянка
+            </a>
+            <a
+              class="burger-menu__contact-link icon icon-phone"
+              href="tel:380979709090"
+            >
+              +38 (097) 970-90-90
+            </a>
+          </div>
+        </div>
+
+        <!-- Кнопки -->
+        <div class="burger-menu__buttons">
+          <a class="burger-menu__btn button button-black" href="/">НАШИ ЗАЛЫ</a>
+          <a class="burger-menu__btn button button-white" href="/"
+            >ЗАБРОНИРОВАТЬ</a
+          >
+        </div>
+
+        <!-- Кнопка закрытия -->
+        <button class="burger-menu__close" aria-label="Close menu">
+          <span class="burger-menu__close-icon"></span>
+        </button>
+      </div>
+    </div>
+    <main>
+      <section class="hero">
+        <div class="hero__main container">
+          <div class="hero__left-content">
+            <div class="hero__text">
+              <div class="hero__text-subtitle">
+                Арендуй Караоке-Зал до 10 человек
+              </div>
+              <h1 class="hero__text-title">
+                ВОЗЬМИ АЛКОГОЛЬ<br />И ЕДУ С СОБОЙ
+              </h1>
+              <!-- <a class="hero__text-adress" href="#"> м. Лубянка </a> -->
+            </div>
+            <ul class="hero__desc-ul">
+              <li class="hero__desc-ul-item">
+                Если хочешь попеть и оторваться
+              </li>
+              <li class="hero__desc-ul-item">Отдохнуть после работы</li>
+              <li class="hero__desc-ul-item">Хорошо провести время</li>
+            </ul>
+            <a class="hero__btn button" href="#">Забронировать онлайн</a>
+          </div>
+          <div class="hero__right-content">
+            <div class="hero__right-bg">
+              <img
+                class="hero__bg-side"
+                src="image/background/hero__bg.png"
+                alt=""
+              />
+              <img
+                class="hero__bg-girl"
+                src="image/pictures/header__singer-picture.png"
+                alt=""
+              />
+            </div>
+            <div class="hero__hours"></div>
+          </div>
+        </div>
+        <div class="hero__advantages">
+          <ul class="advantages-ul">
+            <li class="advantages-ul-item">
+              <img
+                class="advantages-ul__item-icon"
+                src="image/icons/header__microphone.svg"
+                alt=""
+                width="68"
+                height="68"
+              />
+              <span class="advantages-ul__divider"></span>
+              <p class="advantages-ul-desc">Профессиональное караоке AST-50</p>
+            </li>
+            <li class="advantages-ul-item">
+              <img
+                class="advantages-ul__item-icon"
+                src="image/icons/headerbottle-of-champagne.svg"
+                alt=""
+                width="68"
+                height="68"
+              />
+              <span class="advantages-ul__divider"></span>
+              <p class="advantages-ul-desc">Без пробкового сбора</p>
+            </li>
+            <li class="advantages-ul-item">
+              <img
+                class="advantages-ul__item-icon"
+                src="image/icons/header__deposit.svg"
+                alt=""
+                width="68"
+                height="68"
+              />
+              <span class="advantages-ul__divider"></span>
+              <p class="advantages-ul-desc">Без депозита</p>
+            </li>
+            <li class="advantages-ul-item">
+              <img
+                class="advantages-ul__item-icon"
+                src="image/icons/header__firecracker.svg"
+                alt=""
+                width="68"
+                height="68"
+              />
+              <span class="advantages-ul__divider"></span>
+              <p class="advantages-ul-desc">Скидка в День Рождения</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__inner container">
+        <a class="footer__logo logo" href="/">
+          <img
+            class="logo__image"
+            src="image/logo/header_logo(Xarizma).svg"
+            width="293"
+            height="67"
+            alt="YARIZMA"
+          />
+        </a>
+        <nav class="footer__menu">
+          <ul class="footer__menu-list">
+            <li class="footer__menu-item">
+              <div class="footer__icon-wrapper">
+                <button
+                  class="footer__icon-trigger icon icon-phone"
+                  aria-label="Показать телефон"
+                >
+                  <!-- Иконка телефона -->
+                </button>
+                <div class="footer__icon-content">
+                  <a class="footer__menu-link" href="tel:380979709090">
+                    +38 (097) 970-90-90
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="footer__menu-item">
+              <div class="footer__icon-wrapper">
+                <button
+                  class="footer__icon-trigger icon icon-calendar"
+                  aria-label="Показать время работы"
+                >
+                  <!-- Иконка календаря -->
+                </button>
+                <div class="footer__icon-content">
+                  <span class="footer__menu-text">Пн — Вс круглосуточно</span>
+                </div>
+              </div>
+            </li>
+            <li class="footer__menu-item">
+              <div class="footer__icon-wrapper">
+                <button
+                  class="footer__icon-trigger icon icon-location"
+                  aria-label="Показать адрес"
+                >
+                  <!-- Иконка локации -->
+                </button>
+                <div class="footer__icon-content">
+                  <span class="footer__menu-text"
+                    >м. Лубянка, ул. Сретенский переулок, 4</span
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="footer__btn-box">
+          <a href="" class="footer__btn button button-black"
+            >Построить маршрут</a
+          >
+        </div>
+
+        <div class="footer__up">
+          <a class="footer__up-btn footer-button" href="#">
+            <img
+              class="footer_up-img"
+              src="/image/icons/footer_up.svg"
+              alt="Вверх"
+            />
+          </a>
+          <span>Подняться вверх</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
