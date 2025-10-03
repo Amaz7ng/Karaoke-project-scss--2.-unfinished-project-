@@ -1,0 +1,99 @@
+@use "helpers" as *;
+
+:root {
+  //main color
+  --color-white: #fff;
+  --color-black: #000;
+
+  //background
+  --color-background-1: linear-gradient(
+    180deg,
+    rgba(96, 101, 113, 0) 0%,
+    rgba(96, 101, 113, 0.05) 100%
+  );
+
+  --color-background-2: #202124;
+
+  --color-background-3: #282b32;
+
+  --color-background-4: #191b20;
+
+  --color-background-5: #131517;
+
+  --color-background-6: #2e3441;
+
+  //buttons
+  --color-btn-gradient-1: linear-gradient(
+    217deg,
+    #ffc619 0%,
+    #f69020 46.35%,
+    #ec5128 100%
+  );
+
+  --color-btn-gradient-2: linear-gradient(
+    141deg,
+    #ea422a 0%,
+    #f69020 47.92%,
+    #ffc619 100%
+  );
+
+  --color-btn-dark: rgba(255, 255, 255, 0);
+
+  //line
+  --color-line: #323539;
+
+  //icons
+  --color-icons-gradient: linear-gradient(
+    180deg,
+    #ffc619 0%,
+    #f69020 52.08%,
+    #ea422a 100%
+  );
+
+  --color-icons-grey-1: rgba(255, 255, 255, 0.07);
+
+  --color-icons-grey-2: #606571;
+
+  //text-color
+  --color-orange-text: #f69020;
+
+  --color-yellow-text: linear-gradient(180deg, #ffc619 0%, #f69020 100%);
+
+  --color-gray-text: #606571;
+
+  //text-family
+  --font-family-base: "Montserrat", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+
+  //border
+  --border: #{rem(1)} solid var(--color-border);
+
+  --color-border: #393c43;
+
+  --color-border-2: #343a3e;
+
+  --color-border-brown: rgba(255, 198, 25, 0.3);
+
+  --color-border-orange: #f69020;
+
+  //container
+  --container-width: #{rem(1820)};
+  --container-padding-x: #{rem(51)};
+
+  //transition
+  --transition-duration: 0.4s;
+
+  @include laptop {
+    --container-width: #{rem(1440)}; // ← Добавьте эту строку
+  }
+
+  @include tablet {
+    --container-width: 100%;
+    --container-padding-x: #{rem(16)};
+  }
+
+  @include mobile {
+    --container-padding-x: #{rem(12)};
+  }
+  --transition-duration: 0.4s;
+}
