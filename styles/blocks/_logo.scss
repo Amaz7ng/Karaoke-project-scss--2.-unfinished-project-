@@ -1,0 +1,10 @@
+@use "../helpers/" as *;
+
+.logo {
+  max-width: fluid(293, 240);
+  flex-shrink: 0;
+
+  @include tablet-mobile {
+    align-self: flex-start; /* Размещает логотип слева */
+  }
+}

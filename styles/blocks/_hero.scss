@@ -1,0 +1,279 @@
+@use "../helpers/" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
+    position: relative;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: flex-end;
+      min-height: 60vh;
+      padding: rem(30) 0;
+      background-image: url("../../image/background/hero__bg.png");
+      box-shadow: inset rem(-30) 0 rem(80) rem(80) var(--color-background-4);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right center;
+      z-index: 1;
+    }
+  }
+
+  &__left-content {
+    flex: 0 0 53%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+
+    @include tablet {
+      flex: 0 0 50%;
+      align-items: start;
+      text-align: left;
+      order: 1;
+      padding-right: rem(20);
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 20;
+
+    @include tablet {
+      width: 100%;
+      margin-bottom: rem(15);
+    }
+
+    &-subtitle {
+      font-size: rem(41);
+      margin-bottom: rem(20);
+      text-transform: uppercase;
+      line-height: rem(82);
+      width: 100%;
+
+      @include tablet {
+        font-size: rem(24);
+        line-height: 1.3;
+        margin-bottom: rem(10);
+      }
+    }
+
+    &-title {
+      padding-bottom: rem(70);
+      font-size: rem(75);
+      line-height: rem(94);
+      text-transform: uppercase;
+
+      @include tablet {
+        font-size: rem(32);
+        line-height: 1.1;
+        padding-bottom: rem(20);
+        margin-bottom: rem(15);
+      }
+    }
+  }
+
+  &__desc-ul {
+    display: flex;
+    gap: rem(10);
+    font-size: rem(18);
+    line-height: rem(24);
+    padding-bottom: rem(73);
+    position: relative;
+    z-index: 15;
+
+    @include tablet {
+      flex-direction: column;
+      padding-bottom: rem(20);
+      margin-bottom: rem(15);
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      width: rem(261);
+
+      @include tablet {
+        width: 100%;
+        justify-content: start;
+        text-align: left;
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 15;
+
+    @include tablet {
+      width: auto;
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  &__right-content {
+    flex: 0 0 47%;
+    position: relative;
+    height: 52vh;
+    z-index: 1;
+
+    @include tablet {
+      flex: 0 0 50%;
+      height: 45vh;
+      order: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+
+  &__right-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw; // Фон на всю ширину viewport
+    height: 100%;
+    margin-left: -20%;
+
+    @include tablet {
+      position: absolute; // Меняем на absolute для tablet
+      left: 0;
+      top: 0;
+      width: 100vw; // Полная ширина экрана
+      height: 100%;
+      margin-left: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: inset rem(-71) 0 rem(121) rem(200) var(--color-background-4);
+      z-index: 2;
+      pointer-events: none;
+
+      @include tablet {
+        box-shadow: inset rem(-30) 0 rem(80) rem(80) var(--color-background-4);
+        display: none;
+      }
+    }
+
+    img {
+      &.hero__bg-side {
+        height: 100%;
+        width: 100vw; // Фон на всю ширину экрана
+        z-index: 1;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        @include tablet {
+          display: none;
+          width: 100vw;
+          height: 100%;
+          object-fit: cover;
+          object-position: right;
+          position: absolute;
+        }
+      }
+
+      &.hero__bg-girl {
+        position: absolute;
+        transform: translateY(30%);
+        height: fluid(1247, 586);
+        left: 10%;
+        width: auto;
+        z-index: 5;
+        bottom: 0;
+
+        @include tablet {
+          position: absolute;
+          max-width: rem(400);
+          left: 0;
+          right: 5%; // Отступ от правого края
+          transform: translateY(20%);
+          bottom: 0;
+          z-index: 6;
+        }
+      }
+    }
+  }
+
+  &__advantages {
+    z-index: 40;
+    width: 100%;
+    height: rem(130);
+    position: relative;
+
+    @include tablet {
+      height: auto;
+      margin-top: rem(30);
+    }
+
+    .advantages-ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: stretch;
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        padding: rem(35);
+        font-size: rem(16);
+        min-height: rem(130);
+        text-align: center;
+
+        @include tablet {
+          padding: rem(20);
+          min-height: rem(100);
+          flex-direction: column;
+          gap: rem(10);
+        }
+
+        &:nth-child(2n) {
+          background-color: var(--color-background-2);
+        }
+
+        &:nth-child(2n + 1) {
+          background-color: var(--color-background-3);
+        }
+      }
+
+      &__divider {
+        width: rem(34);
+        height: rem(1);
+        background-color: var(--color-border-brown);
+        margin-inline: rem(18) rem(30);
+        flex-shrink: 0;
+
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use "../helpers/" as *;
+
+.header {
+  padding-block: rem(40);
+  position: sticky; // или fixed - смотрите пояснение ниже
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; // Убедитесь, что z-index достаточно высокий
+  background: var(
+    --color-background-4
+  ); // Добавьте фон, чтобы контент не просвечивал
+  border-bottom: dashed rem(2) var(--color-icons-grey-1);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @include mobile {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  // Стили для overlay (десктопное меню)
+  &__overlay {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 5.623rem);
+
+    @include mobile-above {
+      display: flex;
+    }
+
+    @include tablet-mobile {
+      display: none; // Скрываем на мобильных
+    }
+
+    @media (width <= 1320px) and (width > 768px) {
+      gap: 2rem;
+    }
+  }
+
+  &__menu-list {
+    display: flex;
+    align-items: center;
+    column-gap: clamp(1rem, 3vw, 3.2rem);
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+    height: 3.75rem;
+  }
+
+  &__btn-box {
+    display: inline-flex;
+    column-gap: 1.5rem;
+    align-items: center;
+  }
+
+  @include tablet-mobile {
+    border: none;
+  }
+}

@@ -1,0 +1,237 @@
+@use "../helpers/" as *;
+
+// Бургер-меню (открывается сверху на 50%)
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: var(--color-background-4);
+    padding: rem(32) rem(24);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: rem(1);
+    border-bottom: rem(2) solid var(--color-icons-grey-1);
+
+    .burger-menu.is-active & {
+      transform: translateY(0);
+    }
+  }
+
+  // Шапка бургер-меню
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+    margin-bottom: rem(32);
+  }
+
+  // Контакты
+  &__contacts {
+    display: flex;
+    flex-direction: row;
+    gap: rem(32);
+    align-items: center;
+    justify-content: center;
+
+    @include mobile-s {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 rem(38);
+    }
+  }
+
+  &__contact-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: rem(16);
+    display: flex;
+    align-items: center;
+    transition: color var(--transition-duration) ease;
+
+    &:hover {
+      color: var(--color-orange-text);
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 0 rem(17);
+    position: relative;
+
+    @include mobile-s {
+      justify-content: start;
+      max-width: rem(230);
+    }
+  }
+
+  // Кнопки
+  &__buttons {
+    display: flex;
+    gap: rem(19);
+    margin: 0 auto;
+    align-items: center;
+
+    @include mobile-s {
+      padding: 0 rem(19);
+      flex-direction: column;
+      margin: 0;
+      align-items: start;
+    }
+  }
+
+  // Кнопка закрытия - ИСПРАВЛЕННЫЙ СТИЛЬ
+  &__close {
+    position: absolute;
+    top: rem(20);
+    right: rem(24);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex; // Было display: none
+    align-items: center;
+    justify-content: center;
+    width: rem(30);
+    height: rem(30);
+    z-index: 2100;
+
+    // Создаем крестик с помощью псевдоэлементов
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: rem(20);
+      height: rem(2);
+      background: var(--color-orange-text);
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      background: var(--color-white);
+    }
+  }
+}
+
+// Бургер-кнопка в хедере
+.burger-button {
+  display: none;
+
+  @include tablet-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: rem(30);
+    height: rem(30);
+    background: transparent;
+    border: none;
+    gap: 0.375rem;
+    position: absolute;
+    top: 50%;
+    right: var(--container-padding-x);
+    transform: translateY(-50%);
+    z-index: 10000;
+    cursor: pointer;
+
+    &__line {
+      display: block;
+      width: 1.5rem;
+      height: 0.125rem;
+      background: var(--color-orange-text);
+      transition: all 0.3s ease;
+    }
+
+    // Анимация при активном состоянии
+    &.is-active &__line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(0.375rem, 0.375rem);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(0.375rem, -0.375rem);
+      }
+    }
+  }
+}
+
+// Адаптация для мобильных
+@include tablet-mobile {
+  // Скрываем десктопное меню
+  .header__overlay {
+    display: none;
+  }
+
+  .burger-menu__content {
+    height: 22%;
+  }
+
+  // Показываем кнопку закрытия только на мобильных
+  .burger-menu__close {
+    display: flex;
+  }
+}
+
+// Запрет скролла при открытом меню
+body.menu-open {
+  overflow: hidden;
+}
+
+// Адаптация для очень маленьких экранов
+@include mobile-s {
+  .burger-menu__content {
+    height: 35%;
+    padding: rem(24) rem(1);
+  }
+
+  .burger-menu__buttons {
+    max-width: 100%;
+  }
+
+  // Кнопка закрытия на маленьких экранах
+  .burger-menu__close {
+    top: rem(15);
+    right: rem(15);
+  }
+}

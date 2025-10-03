@@ -1,0 +1,232 @@
+@use "../helpers/" as *;
+
+// =====================================HEADER=============================================//
+// =====================================HEADER==================================================//
+.header {
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(32);
+    position: relative;
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    @include hover {
+      color: var(--color-orange-text);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: rem(-17);
+      @include square(rem(60));
+      border-radius: 50%;
+      background-color: var(--color-icons-grey-1);
+      z-index: 1;
+      transition: all var(--transition-duration);
+      flex-shrink: 0;
+
+      @include mobile {
+        @include square(rem(51));
+        left: rem(-15);
+      }
+
+      @include tablet-mobile {
+        display: inline-block;
+      }
+    }
+
+    @include hover {
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    &::before {
+      --size: #{rem(26)};
+      @include square(var(--size));
+      content: "";
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      z-index: 2;
+
+      @include mobile {
+        --size: #{rem(20)};
+      }
+    }
+
+    &-phone::before {
+      background-image: url("../../image/icons/header__telephone.svg");
+    }
+
+    &-location::before {
+      background-image: url("../../image/icons/header__adress.svg");
+    }
+  }
+}
+
+// =====================================FOOTER=============================================//
+// =====================================FOOTER==================================================//
+.footer {
+  .icon {
+    &::before {
+      --size: #{rem(23)};
+      @include square(var(--size));
+      content: "";
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    &-phone::before {
+      background-image: url("../../image/icons/header__telephone.svg");
+    }
+
+    &-location::before {
+      background-image: url("../../image/icons/header__adress.svg");
+    }
+
+    &-calendar::before {
+      background-image: url("../../image/icons/footer__calendar.svg");
+    }
+  }
+}
+
+// Дополнительные стили для выдвигающихся блоков в footer
+
+.footer {
+  &__menu {
+    &-list {
+      display: flex;
+      gap: fluid(15, 8);
+      align-items: flex-start;
+    }
+
+    &-item {
+      position: relative;
+    }
+
+    &-link,
+    &-text {
+      display: flex;
+      max-width: rem(180);
+      transition: all 0.4s;
+
+      @include hover {
+        color: var(--color-orange-text);
+      }
+    }
+  }
+
+  // Обертка для иконки и контента
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: fluid(10);
+  }
+
+  // Кнопка-триггер (иконка)
+  &__icon-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: fluid(32, 20);
+    border-radius: 50%;
+    transition: all var(--transition-duration);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fluid(40, 30);
+    height: fluid(40, 30);
+
+    &:hover {
+      background: var(--color-icons-grey-1);
+      transform: scale(1.3);
+    }
+
+    &.active {
+      background: var(--color-orange-text);
+
+      & + .footer__icon-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // Выдвигающийся контент
+  &__icon-content {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateX(-10px) translateY(-50%);
+    background: var(--color-background-5);
+    padding: fluid(8, 6) fluid(12, 8);
+    border-radius: fluid(4, 2);
+    border: 1px solid var(--color-orange-text);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-duration) ease;
+    z-index: 100;
+    min-width: max-content;
+    margin-left: fluid(10, 5);
+
+    @include mobile-s {
+      visibility: visible;
+      opacity: 1;
+      margin-left: rem(20);
+      white-space: normal;
+      man-width: rem(220);
+    }
+
+    // Стрелочка
+    &::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: fluid(6, 4) solid transparent;
+      border-right-color: var(--color-orange-text);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: fluid(5, 3) solid transparent;
+      border-right-color: var(--color-background-5);
+      margin-right: -1px;
+    }
+  }
+}
+
+// =====================================HERO=============================================//
+// =====================================HERO==================================================//
+
+.hero {
+  &__desc-ul {
+    &-item {
+      &::before {
+        margin-right: rem(16);
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        content: "";
+        --size: #{rem(46)};
+        @include square(var(--size));
+        background: url("../../image/icons/header_check-mark.svg") no-repeat
+          center;
+        background-size: contain;
+      }
+    }
+  }
+}

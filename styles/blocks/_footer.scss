@@ -1,0 +1,86 @@
+@use "../helpers/" as *;
+
+.footer {
+  background-color: var(--color-background-5);
+  width: 100%;
+  border-top: solid rem(2) var(--color-icons-grey-1);
+  padding: rem(40) 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    @include tablet-mobile {
+      flex-direction: column;
+      display: grid;
+    }
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      font-size: clamp(rem(12), 1vh, rem(14));
+      gap: fluid(134, 50);
+      @include tablet-mobile {
+        padding: rem(20) 0;
+      }
+
+      @include mobile-s {
+        flex-direction: column;
+        padding: rem(50) 0;
+      }
+    }
+  }
+
+  &__btn {
+    width: fluid(270, 200);
+    border-color: var(--color-border-orange);
+    white-space: nowrap;
+    @include tablet-mobile {
+      width: rem(280);
+    }
+  }
+
+  &__up {
+    display: flex;
+    align-items: center;
+    gap: rem(26);
+    writing-mode: vertical-rl;
+
+    padding-right: rem(50);
+    position: relative;
+    right: var(--container-padding-x);
+
+    @include tablet-mobile {
+      position: absolute;
+      display: flex;
+      right: var(--container-padding-x);
+    }
+
+    @include mobile-s {
+      padding-right: rem(22);
+    }
+
+    &-btn {
+      position: absolute;
+      z-index: 500;
+    }
+
+    .footer-button {
+      top: rem(-85);
+      @include tablet-mobile {
+        top: rem(-70);
+      }
+    }
+
+    span {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: rem(9);
+      color: var(--color-gray-text);
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@use "../helpers" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(25) rem(35);
+  border: rem(1) solid transparent;
+  border-radius: rem(40);
+  font-weight: 700;
+  width: rem(270);
+  font-size: rem(13);
+  background-image: var(--color-btn-gradient-2);
+  text-transform: uppercase;
+  transition: all var(--transition-duration);
+  white-space: nowrap;
+
+  @include hover {
+    color: var(--color-orange-text);
+  }
+
+  @include laptop {
+    width: rem(228);
+  }
+
+  &-black {
+    background-image: none;
+    border: var(--border);
+
+    @include laptop {
+      width: rem(182);
+      border-radius: rem(28);
+    }
+
+    @include tablet {
+      width: rem(220);
+    }
+  }
+
+  &-white {
+    background-image: none;
+    background-color: var(--color-white);
+    color: var(--color-black);
+
+    @include laptop {
+      width: rem(200);
+      border-radius: rem(28);
+    }
+
+    @include tablet {
+      width: rem(230);
+    }
+  }
+}
+
+.footer-button {
+  padding: rem(31) rem(27);
+  @include tablet-mobile {
+    padding: rem(24) rem(20);
+  }
+  border: var(--border);
+  border-radius: 50%;
+  background-color: var(--color-background-6);
+  white-space: nowrap;
+  transition: all var(--transition-duration) ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 0 rem(15) var(--color-orange-text);
+    transform: translateY(rem(-3));
+    background-color: var(--color-orange-text);
+    border-color: var(--color-white);
+
+    // Свечение
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 rem(20) var(--color-orange-text);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+  }
+
+  // Анимация при клике
+  &:active {
+    transform: translateY(rem(-1)) scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+// ДОБАВЛЯЕМ специфичный стиль для hero кнопки без hover
+.hero__btn {
+  color: var(--color-black);
+
+  // Отключаем все hover эффекты
+  &:hover {
+    color: var(--color-white);
+  }
+
+  width: fluid(277, 223);
+}
